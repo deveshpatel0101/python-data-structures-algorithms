@@ -21,7 +21,9 @@ python stack
 
 ### FOLDER NAMES
 
-1.  **stack** - stack
+1. **queues** -
+   - _simple_queue_ - Simple Queue
+2. **stack** - stack
 
 ### Contribution
 
