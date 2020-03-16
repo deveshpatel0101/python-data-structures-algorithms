@@ -22,6 +22,7 @@ python stack
 ### FOLDER NAMES
 
 1. **queues** -
+   - _cqueue_ - Circular Queue
    - _simple_queue_ - Simple Queue
 2. **stack** - stack
 
