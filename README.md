@@ -23,6 +23,7 @@ python stack
 
 1. **queues** -
    - _cqueue_ - Circular Queue
+   - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
 2. **stack** - stack
 
