@@ -14,14 +14,15 @@ Data Structures and Algorithms (DSA) is one of the most important topic in compu
 Let's assume that you want to run files located in folder `stack`, then the syntax to run it would be:
 
 ```
-cd python-data-structures-algorithms
+cd python-data-structures-algorithms/stack
 
-python stack
+python ./
 ```
 
 ### FOLDER NAMES
 
 1. **queues** -
+   - _cdqueue_ - Circular Double Ended Queue
    - _cqueue_ - Circular Queue
    - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
