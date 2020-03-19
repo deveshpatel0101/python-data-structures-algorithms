@@ -21,12 +21,14 @@ python ./
 
 ### FOLDER NAMES
 
-1. **queues** -
+1. **linked_lists** -
+   - _singly_ll_ - Singly Linked List
+2. **queues** -
    - _cdqueue_ - Circular Double Ended Queue
    - _cqueue_ - Circular Queue
    - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
-2. **stack** - stack
+3. **stack** - stack
 
 ### Contribution
 
