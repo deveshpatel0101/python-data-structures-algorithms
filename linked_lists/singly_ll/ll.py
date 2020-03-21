@@ -104,5 +104,21 @@ class SinglyLinkedList:
         self.tail.next = None
         return data
 
+    def reverse(self):
+        if self.head == None:
+            raise Exception('\n-- Nothing in the list to reverse --')
+        nxt = prev = None
+        curr = self.head
+        tail = self.head
+        while curr != None:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+
+        self.head = prev
+        self.tail = tail
+        self.tail.next = None
+
     def display(self):
         return self.head, self.tail

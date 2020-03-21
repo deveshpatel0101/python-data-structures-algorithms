@@ -11,8 +11,9 @@ def start():
             print('4. DELETE HEAD')
             print('5. DELETE MIDDLE')
             print('6. DELETE TAIL')
-            print('7. DISPLAY')
-            print('8. EXIT')
+            print('7. REVERSE')
+            print('8. DISPLAY')
+            print('9. EXIT')
             choice = int(input('Enter your choice: '))
             if choice == 1:
                 data = input('Enter the data that you want to insert: ')
@@ -35,6 +36,7 @@ def start():
                 data = ll.pop()
                 print(f'Data deleted: {data}')
             elif choice == 7:
+                ll.reverse()
                 head, tail = ll.display()
                 currNode = head
                 if head == None:
@@ -43,6 +45,14 @@ def start():
                     print(f'Data: {currNode.data}, Pointer: {currNode.next}')
                     currNode = currNode.next
             elif choice == 8:
+                head, tail = ll.display()
+                currNode = head
+                if head == None:
+                    print('\n-- List is empty --')
+                while currNode != None:
+                    print(f'Data: {currNode.data}, Pointer: {currNode.next}')
+                    currNode = currNode.next
+            elif choice == 9:
                 break
             else:
                 print('Command not recognized!')
