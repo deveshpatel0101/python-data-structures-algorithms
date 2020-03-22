@@ -22,6 +22,7 @@ python ./
 ### FOLDER NAMES
 
 1. **linked_lists** -
+   - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
    - _singly_ll_ - Singly Linked List
 2. **queues** -
    - _cdqueue_ - Circular Double Ended Queue
