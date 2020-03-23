@@ -1,6 +1,6 @@
 # Python Data Structures and Algorithms
 
-Data Structures and Algorithms (DSA) is one of the most important topic in computer science that every CS student must be proficient in and even non-CS students must have basic understanding of it. It is said that DSA is like bread and butter, necessity of CS. This repository is made for those students (like me :sunglasses:) who are eager to learn and want to implement data structures and algorithms.
+Data Structures and Algorithms (DSA) is one of the most important topics in computer science that every CS student must be proficient in and even non-CS students must have basic understanding of it. It is said that DSA is like bread and butter, necessity of CS. This repository is made for those students (like me :sunglasses:) who are eager to learn and want to implement data structures and algorithms.
 
 ### Instructions
 
@@ -22,6 +22,7 @@ python ./
 ### FOLDER NAMES
 
 1. **linked_lists** -
+   - _circular_ll_ - Circular Linked List
    - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
    - _singly_ll_ - Singly Linked List
 2. **queues** -
