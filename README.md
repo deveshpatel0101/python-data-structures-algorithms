@@ -23,6 +23,7 @@ python ./
 
 1. **linked_lists** -
    - _circular_ll_ - Circular Linked List
+   - _doubly_ll_ - Doubly Linked List
    - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
    - _singly_ll_ - Singly Linked List
 2. **queues** -
