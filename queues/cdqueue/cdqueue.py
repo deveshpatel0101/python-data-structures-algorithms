@@ -33,7 +33,7 @@ class CircularDoubleEndedQueue:
                 self.front = 0
             else:
                 self.front += 1
-            raise Exception('\n-- Overflow --')
+            raise Exception('\n-- Queue Overflow --')
 
         # insert element
         self.queue[self.front] = element
@@ -51,7 +51,7 @@ class CircularDoubleEndedQueue:
                 self.rear = self.size
             else:
                 self.rear -= 1
-            raise Exception('\n-- Overflow --')
+            raise Exception('\n-- Queue Overflow --')
 
         # insert element
         self.queue[self.rear] = element
@@ -63,7 +63,7 @@ class CircularDoubleEndedQueue:
     def deleteFront(self):
         # check for underflow
         if self.front == -1:
-            raise Exception('\n-- Underflow --')
+            raise Exception('\n-- Queue Underflow --')
 
         # delete element
         element = self.queue[self.front]
@@ -85,7 +85,7 @@ class CircularDoubleEndedQueue:
     def deleteRear(self):
         # check for initial condition
         if self.rear == -1:
-            raise Exception('\n-- Underflow --')
+            raise Exception('\n-- Queue Underflow --')
 
         # delete element
         element = self.queue[self.rear]

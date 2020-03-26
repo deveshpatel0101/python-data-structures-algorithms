@@ -27,7 +27,7 @@ class CircularQueue:
                 self.rear = self.size
             else:
                 self.rear -= 1
-            raise Exception('\n-- Overflow --')
+            raise Exception('\n-- Queue Overflow --')
 
         self.queue[self.rear] = element
 
@@ -38,7 +38,7 @@ class CircularQueue:
     def delete(self):
         # check for underflow
         if self.front == -1:
-            raise Exception('\n-- Underflow --')
+            raise Exception('\n-- Queue Underflow --')
 
         # delete element
         element = self.queue[self.front]

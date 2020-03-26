@@ -17,7 +17,7 @@ class SimpleQueue:
     def insert(self, element):
         # check for overflow
         if self.rear >= self.size:
-            raise Exception('\n-- Overflow --')
+            raise Exception('\n-- Queue Overflow --')
 
         # increment rear pointer
         self.rear += 1
@@ -31,7 +31,7 @@ class SimpleQueue:
     def delete(self):
         # check for underflow
         if self.front == -1:
-            raise Exception('\n-- Underflow --')
+            raise Exception('\n-- Queue Underflow --')
 
         # delete element
         element = self.queue[self.front]

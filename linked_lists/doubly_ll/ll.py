@@ -114,7 +114,7 @@ class DoublyLinkedList:
 
     def reverse(self):
         if self.head == None:
-            raise Exception('\n-- Nothing in the list to reverse --')
+            raise Exception('\n-- List is empty --')
 
         node = self.head
         while node != None:

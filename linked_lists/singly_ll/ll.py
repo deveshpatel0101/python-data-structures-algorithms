@@ -106,7 +106,7 @@ class SinglyLinkedList:
 
     def reverse(self):
         if self.head == None:
-            raise Exception('\n-- Nothing in the list to reverse --')
+            raise Exception('\n-- List is empty --')
         nxt = prev = None
         curr = self.head
         tail = self.head
