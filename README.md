@@ -33,6 +33,8 @@ python ./
    - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
 3. **stack** - stack
+4. **trees** -
+   - _bst_using_arr_ - Binary Search Tree using array with BFS and DFS (Pre, In, Post) order traversals.
 
 ### Contribution
 
