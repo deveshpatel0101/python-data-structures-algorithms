@@ -14,8 +14,37 @@ class ArrayTreeTraversal:
 
         return (leftChildIndex, rightChildIndex)
 
-    # bfsTraversal is an itervative version of bfs traversal
+    # bfsTraversal is a recursive version of bfs traversal
     def bfsTraversal(self):
+        root = 0
+        queue = []
+        path = []
+
+        if self.tree[root] == None:
+            return []
+
+        queue.append(root)
+        path = self.bfsTraversalUtil(queue, path)
+        return path
+
+    # bfsTraversalUtil recursively calls itself to find a bfs traversal path
+    def bfsTraversalUtil(self, queue, path):
+        if len(queue) == 0:
+            return []
+
+        currIndex = queue[0]
+        path.append(self.tree[currIndex])
+        queue = queue[1:]
+        childrenIndices = self.__getChildrenIndices(currIndex)
+        queue.extend(
+            [childIndex for childIndex in childrenIndices if childIndex])
+
+        self.bfsTraversalUtil(queue, path)
+
+        return path
+
+    # iteratvieBfsTraversal is an itervative version of bfs traversal
+    def iterativeBfsTraversal(self):
         root = 0
         queue = []
         path = []
@@ -33,7 +62,7 @@ class ArrayTreeTraversal:
 
         return path
 
-    # dfsTraversal call appropriate recursive pre, in, post order traversals
+    # dfsTraversal calls appropriate recursive pre, in or post order traversals
     def dfsTraversal(self, order):
         root = 0
         stack = []
@@ -158,3 +187,8 @@ class ArrayTreeTraversal:
                 break
 
         return path
+
+
+# References:
+# Algorithms for iterative in-order traversal: https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+# Algorithm for iterative post-order traversal: https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
