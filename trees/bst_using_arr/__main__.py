@@ -21,7 +21,7 @@ def start():
                 tree.insert(element)
             elif choice == 2:
                 data = int(
-                    input('Enter the element that you want to insert: '))
+                    input('Enter the element that you want to search: '))
                 foundData = tree.search(data)
                 print(f'Data: {foundData["found"]}, Freq: {foundData["freq"]}')
                 print(

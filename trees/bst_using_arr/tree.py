@@ -106,6 +106,9 @@ class BinarySearchTree:
     def getTree(self):
         return self.tree
 
+    def bfsTraversal(self):
+        return ArrayTreeTraversal(self.tree).bfsTraversal()
+
     def dfsPreOrderTraversal(self):
         return ArrayTreeTraversal(self.tree).dfsTraversal('pre')
 
@@ -114,6 +117,3 @@ class BinarySearchTree:
 
     def dfsPostOrderTraversal(self):
         return ArrayTreeTraversal(self.tree).dfsTraversal('post')
-
-    def bfsTraversal(self):
-        return ArrayTreeTraversal(self.tree).bfsTraversal()

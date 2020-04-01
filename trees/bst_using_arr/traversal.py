@@ -43,25 +43,6 @@ class ArrayTreeTraversal:
 
         return path
 
-    # iteratvieBfsTraversal is an itervative version of bfs traversal
-    def iterativeBfsTraversal(self):
-        root = 0
-        queue = []
-        path = []
-        if self.tree[root] == None:
-            return []
-
-        queue.append(root)
-        while len(queue) != 0:
-            currIndex = queue[0]
-            path.append(self.tree[currIndex])
-            queue = queue[1:]
-            childrenIndices = self.__getChildrenIndices(currIndex)
-            queue.extend(
-                [childIndex for childIndex in childrenIndices if childIndex])
-
-        return path
-
     # dfsTraversal calls appropriate recursive pre, in or post order traversals
     def dfsTraversal(self, order):
         root = 0
@@ -108,6 +89,25 @@ class ArrayTreeTraversal:
             path = self.traversePost(path, (index*2)+1)
             path = self.traversePost(path, (index*2)+2)
             path.append(self.tree[index])
+
+        return path
+
+    # iteratvieBfsTraversal is an itervative version of bfs traversal
+    def iterativeBfsTraversal(self):
+        root = 0
+        queue = []
+        path = []
+        if self.tree[root] == None:
+            return []
+
+        queue.append(root)
+        while len(queue) != 0:
+            currIndex = queue[0]
+            path.append(self.tree[currIndex])
+            queue = queue[1:]
+            childrenIndices = self.__getChildrenIndices(currIndex)
+            queue.extend(
+                [childIndex for childIndex in childrenIndices if childIndex])
 
         return path
 
