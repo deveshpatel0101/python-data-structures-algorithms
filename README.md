@@ -35,6 +35,7 @@ python ./
 3. **stack** - stack
 4. **trees** -
    - _bst_using_arr_ - Binary Search Tree using array with BFS and DFS (Pre, In, Post) order traversals.
+   - _bst_using_ll_ - Binary Search Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
 
 ### Contribution
 
