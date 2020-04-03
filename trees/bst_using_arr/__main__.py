@@ -16,9 +16,26 @@ def start():
             choice = int(input('\nEnter your choice: '))
 
             if choice == 1:
-                element = int(
-                    input('Enter the element that you want to insert: '))
-                tree.insert(element)
+                # element = int(
+                #     input('Enter the element that you want to insert: '))
+                # tree.insert(element)
+                tree.insert(1)
+                tree.insert(-10)
+                tree.insert(20)
+                tree.insert(-15)
+                tree.insert(-5)
+                tree.insert(15)
+                tree.insert(25)
+                tree.insert(-18)
+                tree.insert(-11)
+                tree.insert(-7)
+                tree.insert(-2)
+                tree.insert(14)
+                tree.insert(17)
+                tree.insert(24)
+                tree.insert(28)
+                tree.insert(-5)
+                tree.insert(25)
             elif choice == 2:
                 data = int(
                     input('Enter the element that you want to search: '))

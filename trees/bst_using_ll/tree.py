@@ -64,7 +64,7 @@ class BinarySearchTree:
                     currNode = currNode.left
             elif currNode.data < data:
                 if currNode.right != None and currNode.right.data == data:
-                    found['found'] = currNode.right
+                    found['found'] = currNode.right.data
                     found['freq'] = currNode.right.freq
                     found['parent'] = currNode.data
                     found['sibling'] = currNode.left.data if currNode.left else None

@@ -32,6 +32,20 @@ class BinarySearchTree:
 
         return (leftChild, rightChild)
 
+    def __getSibling(self, index, siblingOf):
+        parentIndex = -1
+        if siblingOf == 'left':
+            parentIndex = int((index-1)/2)
+        else:
+            parentIndex = int((index-2)/2)
+
+        if siblingOf == 'left' and (parentIndex*2)+2 < len(self.tree):
+            return self.tree[(parentIndex*2)+2]
+        elif siblingOf == 'right' and (parentIndex*2)+1 < len(self.tree):
+            return self.tree[(parentIndex*2)+1]
+
+        return None
+
     def insert(self, data):
         index = 0
         while True:
@@ -67,31 +81,33 @@ class BinarySearchTree:
 
                 if index == 0:
                     # root element
-                    data['found'] = self.tree[index]
+                    data['found'] = self.tree[index].data
+                    data['freq'] = self.tree[index].freq
                     (leftChild, rightChild) = self.__getChildren(index)
-                    data['leftChild'] = leftChild if leftChild else None
-                    data['rightChild'] = rightChild if rightChild else None
+                    data['leftChild'] = leftChild.data if leftChild else None
+                    data['rightChild'] = rightChild.data if rightChild else None
                 elif index % 2 != 0:
                     # found left element
                     parentIndex = int((index-1)/2)
                     (leftChild, rightChild) = self.__getChildren(index)
+                    sibling = self.__getSibling(index, 'left')
                     data['found'] = self.tree[index].data
                     data['freq'] = self.tree[index].freq
                     data['parent'] = self.tree[parentIndex].data
-                    data['sibling'] = self.tree[(parentIndex*2)+2].data
-                    data['leftChild'] = leftChild if leftChild else None
-                    data['rightChild'] = rightChild if rightChild else None
+                    data['sibling'] = sibling.data if sibling else None
+                    data['leftChild'] = leftChild.data if leftChild else None
+                    data['rightChild'] = rightChild.data if rightChild else None
                 else:
                     # found right element
-                    print(f'{index}')
                     parentIndex = int((index-2)/2)
                     (leftChild, rightChild) = self.__getChildren(index)
+                    sibling = self.__getSibling(index, 'right')
                     data['found'] = self.tree[index].data
                     data['freq'] = self.tree[index].freq
                     data['parent'] = self.tree[parentIndex].data
-                    data['sibling'] = self.tree[(parentIndex*2)+1].data
-                    data['leftChild'] = leftChild if leftChild else None
-                    data['rightChild'] = rightChild if rightChild else None
+                    data['sibling'] = sibling.data if sibling else None
+                    data['leftChild'] = leftChild.data if leftChild else None
+                    data['rightChild'] = rightChild.data if rightChild else None
 
                 return data
 
