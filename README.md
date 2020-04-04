@@ -37,6 +37,7 @@ python ./
    - _bst_using_arr_ - Binary Search Tree using array with BFS and DFS (Pre, In, Post) order traversals.
    - _bst_using_ll_ - Binary Search Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
    - _simple_bt_using_arr_ - Simple Binary Tree using array with BFS and DFS (Pre, In, Post) order traversals.
+   - _simple_bt_using_ll_ - Simple Binary Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
 
 ### Contribution
 
