@@ -19,7 +19,7 @@ def start():
             if choice == 1:
                 data = int(
                     input('Enter the element that you want to insert: '))
-                tree.insert(data)                
+                tree.insert(data)
             elif choice == 2:
                 data = int(
                     input('Enter the element that you want to delete: '))
@@ -28,7 +28,7 @@ def start():
                 data = int(
                     input('Enter the element that you want to search: '))
                 foundData = tree.search(data)
-                print(f'Data: {foundData["found"]}, Freq: {foundData["freq"]}')
+                print(f'Data: {data}, Freq: {foundData["freq"]}')
                 print(
                     f'Parent: {foundData["parent"]}, Sibling: {foundData["sibling"]}')
                 print(

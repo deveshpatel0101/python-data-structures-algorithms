@@ -52,11 +52,10 @@ class SimpleBinaryTree:
         if self.tree == None:
             raise Exception('\n-- Data not found --')
 
-        found = {'found': None, 'parent': None, 'sibling': None,
+        found = {'parent': None, 'sibling': None,
                  'leftChild': None, 'rightChild': None, 'freq': None}
 
         if self.tree.data == data:
-            found['found'] = data
             found['freq'] = self.tree.freq
             found['leftChild'] = self.tree.left.data if self.tree.left else None
             found['rightChild'] = self.tree.right.data if self.tree.right else None
@@ -67,7 +66,6 @@ class SimpleBinaryTree:
             currNode = queue[0]
             queue = queue[1:]
             if currNode.left and currNode.left.data == data:
-                found['found'] = data
                 found['freq'] = currNode.left.freq
                 found['parent'] = currNode.data
                 found['sibling'] = currNode.right.data if currNode.right else None
@@ -75,7 +73,6 @@ class SimpleBinaryTree:
                 found['rightChild'] = currNode.left.right.data if currNode.left.right else None
                 return found
             elif currNode.right and currNode.right.data == data:
-                found['found'] = data
                 found['freq'] = currNode.right.freq
                 found['parent'] = currNode.data
                 found['sibling'] = currNode.left.data if currNode.left else None

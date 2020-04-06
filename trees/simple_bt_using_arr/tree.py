@@ -39,11 +39,10 @@ class SimpleBinaryTree:
         return None
 
     def __getNodeInfo(self, index):
-        data = {'found': None, 'freq': None, 'parent': None, 'sibling': None,
+        data = {'freq': None, 'parent': None, 'sibling': None,
                 'leftChild': None, 'rightChild': None}
         if index == 0:
             # fount root element
-            data['found'] = self.tree[index].data
             data['freq'] = self.tree[index].freq
             (leftChild, rightChild) = self.__getChildren(index)
             data['leftChild'] = leftChild.data if leftChild else None
@@ -55,7 +54,6 @@ class SimpleBinaryTree:
             parentIndex = int((index-1)/2)
             (leftChild, rightChild) = self.__getChildren(index)
             sibling = self.__getSibling(index, 'left')
-            data['found'] = self.tree[index].data
             data['freq'] = self.tree[index].freq
             data['parent'] = self.tree[parentIndex].data
             data['sibling'] = sibling.data if sibling else None
@@ -66,7 +64,6 @@ class SimpleBinaryTree:
             parentIndex = int((index-2)/2)
             (leftChild, rightChild) = self.__getChildren(index)
             sibling = self.__getSibling(index, 'right')
-            data['found'] = self.tree[index].data
             data['freq'] = self.tree[index].freq
             data['parent'] = self.tree[parentIndex].data
             data['sibling'] = sibling.data if sibling else None

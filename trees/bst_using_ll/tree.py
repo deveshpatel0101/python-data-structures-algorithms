@@ -45,13 +45,12 @@ class BinarySearchTree:
             raise Exception('\n-- Data not found --')
 
         currNode = self.tree
-        found = {'found': None, 'parent': None, 'sibling': None,
+        found = {'parent': None, 'sibling': None,
                  'leftChild': None, 'rightChild': None, 'freq': None}
 
         while True:
             if currNode.data > data:
                 if currNode.left != None and currNode.left.data == data:
-                    found['found'] = currNode.left.data
                     found['freq'] = currNode.left.freq
                     found['parent'] = currNode.data
                     found['sibling'] = currNode.right.data if currNode.right else None
@@ -64,7 +63,6 @@ class BinarySearchTree:
                     currNode = currNode.left
             elif currNode.data < data:
                 if currNode.right != None and currNode.right.data == data:
-                    found['found'] = currNode.right.data
                     found['freq'] = currNode.right.freq
                     found['parent'] = currNode.data
                     found['sibling'] = currNode.left.data if currNode.left else None
@@ -77,7 +75,6 @@ class BinarySearchTree:
                 else:
                     currNode = currNode.right
             else:
-                found['found'] = currNode.data
                 found['freq'] = currNode.freq
                 found['leftChild'] = currNode.left.data if currNode.left else None
                 found['rightChild'] = currNode.right.data if currNode.right else None
@@ -100,7 +97,10 @@ class BinarySearchTree:
         elif currNode.data < data:
             currNode.right = self.deleteNodeUtil(currNode.right, data)
         else:
-            if currNode.left == None:
+            if currNode.freq > 1:
+                currNode.freq -= 1
+                return currNode
+            elif currNode.left == None:
                 return currNode.right
             elif currNode.right == None:
                 return currNode.left
