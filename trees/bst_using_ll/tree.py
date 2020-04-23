@@ -19,26 +19,19 @@ class BinarySearchTree:
         return node
 
     def insert(self, data):
-        node = Node(data)
-        if self.tree == None:
-            self.tree = node
-            return
+        self.tree = self.insertNodeUtil(self.tree, data)
 
-        currNode = self.tree
-        while True:
-            if currNode.data > node.data and currNode.left != None:
-                currNode = currNode.left
-            elif currNode.data > node.data and currNode.left == None:
-                currNode.left = node
-                return
-            elif currNode.data < node.data and currNode.right != None:
-                currNode = currNode.right
-            elif currNode.data < node.data and currNode.right == None:
-                currNode.right = node
-                return
-            elif currNode.data == node.data:
-                currNode.freq += 1
-                return
+    def insertNodeUtil(self, currNode, data):
+        if currNode == None:
+            return Node(data)
+        elif data < currNode.data:
+            currNode.left = self.insertNodeUtil(currNode.left, data)
+        elif data > currNode.data:
+            currNode.right = self.insertNodeUtil(currNode.right, data)
+        elif currNode.data == data:
+            currNode.freq += 1
+
+        return currNode
 
     def search(self, data):
         if self.tree == None:
