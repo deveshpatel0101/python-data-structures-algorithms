@@ -50,35 +50,19 @@ class SimpleBinaryTree:
         root = self.tree
         queue = []
         if self.tree == None:
-            raise Exception('\n-- Data not found --')
-
-        found = {'parent': None, 'sibling': None,
-                 'leftChild': None, 'rightChild': None, 'freq': None}
+            return None
 
         if self.tree.data == data:
-            found['freq'] = self.tree.freq
-            found['leftChild'] = self.tree.left.data if self.tree.left else None
-            found['rightChild'] = self.tree.right.data if self.tree.right else None
-            return found
+            return self.tree
 
         queue.append(root)
         while len(queue) != 0:
             currNode = queue[0]
             queue = queue[1:]
             if currNode.left and currNode.left.data == data:
-                found['freq'] = currNode.left.freq
-                found['parent'] = currNode.data
-                found['sibling'] = currNode.right.data if currNode.right else None
-                found['leftChild'] = currNode.left.left.data if currNode.left.left else None
-                found['rightChild'] = currNode.left.right.data if currNode.left.right else None
-                return found
+                return currNode.left
             elif currNode.right and currNode.right.data == data:
-                found['freq'] = currNode.right.freq
-                found['parent'] = currNode.data
-                found['sibling'] = currNode.left.data if currNode.left else None
-                found['leftChild'] = currNode.right.left.data if currNode.right.left else None
-                found['rightChild'] = currNode.right.right.data if currNode.right.right else None
-                return found
+                return currNode.right
             else:
                 childrenIndices = (currNode.left, currNode.right)
                 queue.extend(

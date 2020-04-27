@@ -34,44 +34,17 @@ class BinarySearchTree:
         return currNode
 
     def search(self, data):
-        if self.tree == None:
-            raise Exception('\n-- Data not found --')
+        return self.searchNodeUtil(self.tree, data)
 
-        currNode = self.tree
-        found = {'parent': None, 'sibling': None,
-                 'leftChild': None, 'rightChild': None, 'freq': None}
-
-        while True:
-            if currNode.data > data:
-                if currNode.left != None and currNode.left.data == data:
-                    found['freq'] = currNode.left.freq
-                    found['parent'] = currNode.data
-                    found['sibling'] = currNode.right.data if currNode.right else None
-                    found['leftChild'] = currNode.left.left.data if currNode.left.left else None
-                    found['rightChild'] = currNode.left.right.data if currNode.left.right else None
-                    return found
-                elif currNode.left == None:
-                    raise Exception('\n-- Data not found --')
-                else:
-                    currNode = currNode.left
-            elif currNode.data < data:
-                if currNode.right != None and currNode.right.data == data:
-                    found['freq'] = currNode.right.freq
-                    found['parent'] = currNode.data
-                    found['sibling'] = currNode.left.data if currNode.left else None
-                    found['leftChild'] = currNode.right.left.data if currNode.right.left else None
-                    found['rightChild'] = currNode.right.right.data if currNode.right.right else None
-                    return found
-
-                elif currNode.right == None:
-                    raise Exception('\n-- Data not found --')
-                else:
-                    currNode = currNode.right
-            else:
-                found['freq'] = currNode.freq
-                found['leftChild'] = currNode.left.data if currNode.left else None
-                found['rightChild'] = currNode.right.data if currNode.right else None
-                return found
+    def searchNodeUtil(self, currNode, data):
+        if currNode == None:
+            return None
+        elif currNode.data == data:
+            return currNode
+        elif data < currNode.data:
+            return self.searchNodeUtil(currNode.left, data)
+        elif data > currNode.data:
+            return self.searchNodeUtil(currNode.right, data)
 
     def delete(self, data):
         if self.tree == None:

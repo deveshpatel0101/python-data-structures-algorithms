@@ -23,11 +23,10 @@ def start():
                 data = int(
                     input('Enter the element that you want to search: '))
                 foundData = tree.search(data)
-                print(f'Data: {data}, Freq: {foundData["freq"]}')
-                print(
-                    f'Parent: {foundData["parent"]}, Sibling: {foundData["sibling"]}')
-                print(
-                    f'Left Child: {foundData["leftChild"]}, Right Child: {foundData["rightChild"]}')
+                if foundData is not None:
+                    print(f'Data: {foundData.data}, Freq: {foundData.freq}')
+                else:
+                    print('\n-- Data not found! --')
             elif choice == 3:
                 path = tree.bfsTraversal()
                 if len(path) == 0:

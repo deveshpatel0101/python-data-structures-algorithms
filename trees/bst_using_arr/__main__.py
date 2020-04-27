@@ -16,35 +16,17 @@ def start():
             choice = int(input('\nEnter your choice: '))
 
             if choice == 1:
-                # element = int(
-                #     input('Enter the element that you want to insert: '))
-                # tree.insert(element)
-                tree.insert(1)
-                tree.insert(-10)
-                tree.insert(20)
-                tree.insert(-15)
-                tree.insert(-5)
-                tree.insert(15)
-                tree.insert(25)
-                tree.insert(-18)
-                tree.insert(-11)
-                tree.insert(-7)
-                tree.insert(-2)
-                tree.insert(14)
-                tree.insert(17)
-                tree.insert(24)
-                tree.insert(28)
-                tree.insert(-5)
-                tree.insert(25)
+                element = int(
+                    input('Enter the element that you want to insert: '))
+                tree.insert(element)
             elif choice == 2:
                 data = int(
                     input('Enter the element that you want to search: '))
                 foundData = tree.search(data)
-                print(f'Data: {data}, Freq: {foundData["freq"]}')
-                print(
-                    f'Parent: {foundData["parent"]}, Sibling: {foundData["sibling"]}')
-                print(
-                    f'Left Child: {foundData["leftChild"]}, Right Child: {foundData["rightChild"]}')
+                if foundData is not None:
+                    print(f'Data: {foundData.data}, Freq: {foundData.freq}')
+                else:
+                    print('\n-- Data not found! --')
             elif choice == 3:
                 path = tree.bfsTraversal()
                 if len(path) == 0:
