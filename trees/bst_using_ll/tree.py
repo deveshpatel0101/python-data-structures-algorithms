@@ -34,34 +34,34 @@ class BinarySearchTree:
         return currNode
 
     def search(self, data):
-        return self.searchNodeUtil(self.tree, data)
+        return self.__searchNodeUtil(self.tree, data)
 
-    def searchNodeUtil(self, currNode, data):
+    def __searchNodeUtil(self, currNode, data):
         if currNode == None:
             return None
         elif currNode.data == data:
             return currNode
         elif data < currNode.data:
-            return self.searchNodeUtil(currNode.left, data)
+            return self.__searchNodeUtil(currNode.left, data)
         elif data > currNode.data:
-            return self.searchNodeUtil(currNode.right, data)
+            return self.__searchNodeUtil(currNode.right, data)
 
     def delete(self, data):
         if self.tree == None:
             return None
 
-        self.tree = self.deleteNodeUtil(self.tree, data)
+        self.tree = self.__deleteNodeUtil(self.tree, data)
         return
 
-    def deleteNodeUtil(self, currNode, data):
+    def __deleteNodeUtil(self, currNode, data):
         node = None
         if currNode == None:
             return currNode
 
         if currNode.data > data:
-            currNode.left = self.deleteNodeUtil(currNode.left, data)
+            currNode.left = self.__deleteNodeUtil(currNode.left, data)
         elif currNode.data < data:
-            currNode.right = self.deleteNodeUtil(currNode.right, data)
+            currNode.right = self.__deleteNodeUtil(currNode.right, data)
         else:
             if currNode.freq > 1:
                 currNode.freq -= 1
@@ -74,7 +74,7 @@ class BinarySearchTree:
             temp = self.__getMinValueNode(currNode.right)
             currNode.data = temp.data
             currNode.freq = temp.freq
-            currNode.right = self.deleteNodeUtil(currNode.right, temp.data)
+            currNode.right = self.__deleteNodeUtil(currNode.right, temp.data)
 
         return currNode
 

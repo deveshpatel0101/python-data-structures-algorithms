@@ -37,9 +37,9 @@ class BinarySearchTree:
                 index = (2*index) + 2
 
     def search(self, data):
-        return self.searchNodeUtil(0, data)
+        return self.__searchNodeUtil(0, data)
 
-    def searchNodeUtil(self, index, data):
+    def __searchNodeUtil(self, index, data):
         if len(self.tree) < index+1:
             return None
         elif self.tree[index] == None:
@@ -47,9 +47,9 @@ class BinarySearchTree:
         elif self.tree[index].data == data:
             return self.tree[index]
         elif data < self.tree[index].data:
-            return self.searchNodeUtil((2*index) + 1, data)
+            return self.__searchNodeUtil((2*index) + 1, data)
         elif data > self.tree[index].data:
-            return self.searchNodeUtil((2*index) + 2, data)
+            return self.__searchNodeUtil((2*index) + 2, data)
 
     def simpleDisplay(self):
         for index in range(len(self.tree)):

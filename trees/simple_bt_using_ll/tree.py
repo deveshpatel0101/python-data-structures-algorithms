@@ -72,17 +72,17 @@ class SimpleBinaryTree:
         if self.tree == None:
             return None
 
-        self.tree = self.deleteNodeUtil(self.tree, data)
+        self.tree = self.__deleteNodeUtil(self.tree, data)
         return
 
-    def deleteNodeUtil(self, currNode, data):
+    def __deleteNodeUtil(self, currNode, data):
         node = None
         if currNode == None:
             return currNode
 
         if currNode.data != data:
-            currNode.left = self.deleteNodeUtil(currNode.left, data)
-            currNode.right = self.deleteNodeUtil(currNode.right, data)
+            currNode.left = self.__deleteNodeUtil(currNode.left, data)
+            currNode.right = self.__deleteNodeUtil(currNode.right, data)
         else:
             if currNode.freq > 1:
                 currNode.freq -= 1
@@ -95,7 +95,7 @@ class SimpleBinaryTree:
             temp = self.__getLeafNode(currNode.right)
             currNode.data = temp.data
             currNode.freq = temp.freq
-            currNode.right = self.deleteNodeUtil(currNode.right, temp.data)
+            currNode.right = self.__deleteNodeUtil(currNode.right, temp.data)
 
         return currNode
 
