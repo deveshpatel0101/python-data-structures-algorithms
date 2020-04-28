@@ -23,6 +23,7 @@ python ./
 
 1. **graphs** -
    - _undirected_unweighted_ - Undirected Unweighted Graph
+   - _undirected_weighted_ - Undirected Weighted Graph
 2. **linked_lists** -
    - _circular_doubly_ll_ - Circular Doubly Linked List
    - _circular_ll_ - Circular Linked List
