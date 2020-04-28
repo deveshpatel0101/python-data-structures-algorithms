@@ -21,19 +21,21 @@ python ./
 
 ### FOLDER NAMES
 
-1. **linked_lists** -
+1. **graphs** -
+   - _undirected_unweighted_ - Undirected Unweighted Graph
+2. **linked_lists** -
    - _circular_doubly_ll_ - Circular Doubly Linked List
    - _circular_ll_ - Circular Linked List
    - _doubly_ll_ - Doubly Linked List
    - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
    - _singly_ll_ - Singly Linked List
-2. **queues** -
+3. **queues** -
    - _cdqueue_ - Circular Double Ended Queue
    - _cqueue_ - Circular Queue
    - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
-3. **stack** - stack
-4. **trees** -
+4. **stack** - stack
+5. **trees** -
    - _bst_using_arr_ - Binary Search Tree using array with BFS and DFS (Pre, In, Post) order traversals.
    - _bst_using_ll_ - Binary Search Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
    - _simple_bt_using_arr_ - Simple Binary Tree using array with BFS and DFS (Pre, In, Post) order traversals.
