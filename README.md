@@ -23,6 +23,7 @@ python ./
 
 1. **graphs** -
    - _directed_unweighted_ - Directed Unweighted Graph
+   - _directed_weighted_ - Directed Weighted Graph
    - _undirected_unweighted_ - Undirected Unweighted Graph
    - _undirected_weighted_ - Undirected Weighted Graph
 2. **linked_lists** -
