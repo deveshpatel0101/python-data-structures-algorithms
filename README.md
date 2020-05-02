@@ -26,19 +26,21 @@ python ./
    - _directed_weighted_ - Directed Weighted Graph
    - _undirected_unweighted_ - Undirected Unweighted Graph
    - _undirected_weighted_ - Undirected Weighted Graph
-2. **linked_lists** -
+2. **heaps** -
+   - _min_binary_heap_ - Min Binary Heap
+3. **linked_lists** -
    - _circular_doubly_ll_ - Circular Doubly Linked List
    - _circular_ll_ - Circular Linked List
    - _doubly_ll_ - Doubly Linked List
    - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
    - _singly_ll_ - Singly Linked List
-3. **queues** -
+4. **queues** -
    - _cdqueue_ - Circular Double Ended Queue
    - _cqueue_ - Circular Queue
    - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
-4. **stack** - stack
-5. **trees** -
+5. **stack** - stack
+6. **trees** -
    - _bst_using_arr_ - Binary Search Tree using array with BFS and DFS (Pre, In, Post) order traversals.
    - _bst_using_ll_ - Binary Search Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
    - _simple_bt_using_arr_ - Simple Binary Tree using array with BFS and DFS (Pre, In, Post) order traversals.
