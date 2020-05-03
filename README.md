@@ -27,6 +27,7 @@ python ./
    - _undirected_unweighted_ - Undirected Unweighted Graph
    - _undirected_weighted_ - Undirected Weighted Graph
 2. **heaps** -
+   - _max_binary_heap_ - Max Binary Heap
    - _min_binary_heap_ - Min Binary Heap
 3. **linked_lists** -
    - _circular_doubly_ll_ - Circular Doubly Linked List
