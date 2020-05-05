@@ -21,27 +21,30 @@ python ./
 
 ### FOLDER NAMES
 
-1. **graphs** -
+1. **algorithms** -
+   - _sorting_ -
+     - _bubble_sort_ - Bubble Sort - O(n<sup>2</sup>)
+2. **graphs** -
    - _directed_unweighted_ - Directed Unweighted Graph
    - _directed_weighted_ - Directed Weighted Graph
    - _undirected_unweighted_ - Undirected Unweighted Graph
    - _undirected_weighted_ - Undirected Weighted Graph
-2. **heaps** -
+3. **heaps** -
    - _max_binary_heap_ - Max Binary Heap
    - _min_binary_heap_ - Min Binary Heap
-3. **linked_lists** -
+4. **linked_lists** -
    - _circular_doubly_ll_ - Circular Doubly Linked List
    - _circular_ll_ - Circular Linked List
    - _doubly_ll_ - Doubly Linked List
    - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
    - _singly_ll_ - Singly Linked List
-4. **queues** -
+5. **queues** -
    - _cdqueue_ - Circular Double Ended Queue
    - _cqueue_ - Circular Queue
    - _dqueue_ - Double Ended Queue
    - _simple_queue_ - Simple Queue
-5. **stack** - stack
-6. **trees** -
+6. **stack** - stack
+7. **trees** -
    - _bst_using_arr_ - Binary Search Tree using array with BFS and DFS (Pre, In, Post) order traversals.
    - _bst_using_ll_ - Binary Search Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
    - _simple_bt_using_arr_ - Simple Binary Tree using array with BFS and DFS (Pre, In, Post) order traversals.
