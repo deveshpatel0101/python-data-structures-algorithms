@@ -24,6 +24,7 @@ python ./
 1. **algorithms** -
    - _sorting_ -
      - _bubble_sort_ - Bubble Sort - O(n<sup>2</sup>)
+     - _selection_sort_ - Selection Sort - O(n<sup>2</sup>)
 2. **graphs** -
    - _directed_unweighted_ - Directed Unweighted Graph
    - _directed_weighted_ - Directed Weighted Graph
