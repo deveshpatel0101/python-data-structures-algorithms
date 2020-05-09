@@ -25,6 +25,7 @@ python ./
    - _sorting_ -
      - _bubble_sort_ - Bubble Sort - O(n<sup>2</sup>)
      - _insertion_sort_ - Insertion Sort - O(n<sup>2</sup>)
+     - _merge_sort_ - Merge Sort - O(nLog(n))
      - _selection_sort_ - Selection Sort - O(n<sup>2</sup>)
 2. **graphs** -
    - _directed_unweighted_ - Directed Unweighted Graph
