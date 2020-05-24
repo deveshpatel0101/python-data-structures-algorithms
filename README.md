@@ -25,6 +25,7 @@ python ./
    - _sorting_ -
      - _bubble_sort_ - Bubble Sort - O(n<sup>2</sup>)
      - _bucket_sort_ - Bucket Sort - O(n<sup>2</sup>)
+     - _counting_sort_ - Counting Sort - O(n + k)
      - _insertion_sort_ - Insertion Sort - O(n<sup>2</sup>)
      - _merge_sort_ - Merge Sort - O(nLog(n))
      - _quick_sort_ - Quick Sort - O(nLog(n))
