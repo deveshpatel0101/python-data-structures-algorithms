@@ -1,7 +1,7 @@
 class Stack:
-    def __init__(self):
+    def __init__(self, size = 5):
         self.items = []
-        self.size = 5
+        self.size = size
         self.top = 0
 
     def set_size(self, size):
@@ -13,7 +13,6 @@ class Stack:
     def push(self, item):
         if self.top == self.size:
             raise Exception('\n-- Stack Overflow! --')
-            return
         self.items.append(item)
         self.top += 1
         return item, self.top
@@ -21,7 +20,6 @@ class Stack:
     def pop(self):
         if self.top == 0:
             raise Exception('\n-- Stack underflow! --')
-            return
         self.top -= 1
         return self.items.pop(), self.top
 
@@ -31,7 +29,6 @@ class Stack:
     def peek(self):
         if self.top == 0:
             raise Exception('\n-- Stack underflow! --')
-            return
         return self.items[len(self.items)-1]
 
     def display(self):

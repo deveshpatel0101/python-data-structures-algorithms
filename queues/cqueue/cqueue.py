@@ -3,10 +3,10 @@ class CircularQueue:
     An implementation of Circular Queue (FIFO).
     """
 
-    def __init__(self):
+    def __init__(self, size=4):
         self.rear = -1
         self.front = -1
-        self.size = 4
+        self.size = size
         self.queue = []
         for i in range(self.size+1):
             self.queue.append('null')
