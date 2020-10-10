@@ -1,4 +1,4 @@
-from ll import SinglyLinkedList
+from .ll import SinglyLinkedList
 
 
 def start():
@@ -37,7 +37,7 @@ def start():
                 print(f'Data deleted: {data}')
             elif choice == 7:
                 ll.reverse()
-                head, tail = ll.display()
+                head, tail = ll.getPointers()
                 currNode = head
                 if head == None:
                     print('\n-- List is empty --')
@@ -45,7 +45,7 @@ def start():
                     print(f'Data: {currNode.data}, Pointer: {currNode.next}')
                     currNode = currNode.next
             elif choice == 8:
-                head, tail = ll.display()
+                head, tail = ll.getPointers()
                 currNode = head
                 if head == None:
                     print('\n-- List is empty --')
