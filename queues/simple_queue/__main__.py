@@ -1,4 +1,4 @@
-from simple_queue import SimpleQueue
+from .simple_queue import SimpleQueue
 
 
 def start():
@@ -27,7 +27,7 @@ def start():
                 (front, rear) = queue.get_pointers()
                 print(f'\nPointer values are FRONT: {front}, REAR: {rear}')
             elif choice == 4:
-                print(f'{queue.display()}')
+                print(f'{queue.get_queue()}')
             elif choice == 5:
                 break
             else:
