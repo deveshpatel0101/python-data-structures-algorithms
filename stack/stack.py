@@ -45,6 +45,12 @@ class Stack:
         '''
         return self.items == []
 
+    def is_full(self):
+        '''
+        returns True if stack is full and False otherwise
+        '''
+        return len(self.items) == self.size
+
     def peek(self):
         '''
         returns the element that is on the top of stack
