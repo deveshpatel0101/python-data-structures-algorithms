@@ -32,24 +32,25 @@ class SinglyLinkedList:
         '''
         if self.head == None and position > 1:
             raise Exception('\n-- Index out of range --')
-        elif self.head == None or position == 1:
+        elif position == 1:
             self.unshift(data)
-        else:
-            node = Node(data)
-            currNode = self.head
+            return
 
-            for i in range(0, position-2):
-                if currNode == self.tail:
-                    raise Exception('\n-- Index out of range --')
-                currNode = currNode.next
+        node = Node(data)
+        currNode = self.head
 
+        for i in range(0, position-2):
             if currNode == self.tail:
-                self.tail.next = node
-                self.tail = node
-            else:
-                temp = currNode.next
-                node.next = temp
-                currNode.next = node
+                raise Exception('\n-- Index out of range --')
+            currNode = currNode.next
+
+        if currNode == self.tail:
+            self.tail.next = node
+            self.tail = node
+        else:
+            temp = currNode.next
+            node.next = temp
+            currNode.next = node
 
     def push(self, data):
         '''
@@ -85,28 +86,28 @@ class SinglyLinkedList:
             raise Exception('\n-- Index out of range --')
         elif self.head == None or position == 1:
             return self.shift()
-        else:
-            currNode = self.head
 
-            for i in range(0, position-2):
-                if currNode.next == self.tail:
-                    raise Exception('\n-- Index out of range --')
-                currNode = currNode.next
-            data = None
-            data = currNode.next.data
+        currNode = self.head
+
+        for i in range(0, position-2):
             if currNode.next == self.tail:
-                currNode.next = None
-                self.tail = currNode
-            else:
-                currNode.next = currNode.next.next
+                raise Exception('\n-- Index out of range --')
+            currNode = currNode.next
 
-            return data
+        data = currNode.next.data
+        if currNode.next == self.tail:
+            currNode.next = None
+            self.tail = currNode
+        else:
+            currNode.next = currNode.next.next
+
+        return data
 
     def pop(self):
         '''
         Deletes a node from the end and returns the data stored in it
         '''
-        if self.head == None or self.tail == None:
+        if self.head == None:
             raise Exception('\n-- List is empty --')
 
         node = self.head
