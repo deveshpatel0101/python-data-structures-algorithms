@@ -1,4 +1,4 @@
-from dqueue import DoubleEndedQueue
+from .dqueue import DoubleEndedQueue
 
 
 def start():
@@ -20,14 +20,14 @@ def start():
                 queue.insertFront(element)
                 (front, rear) = queue.get_pointers()
                 print(f'\nValues after insertion FRONT: {front}, REAR: {rear}')
-                print(f'{queue.display()}')
+                print(f'{queue.get_queue()}')
             elif choice == 2:
                 element = int(
                     input('Enter the element that you want to insert: '))
                 queue.insertRear(element)
                 (front, rear) = queue.get_pointers()
                 print(f'\nValues after insertion FRONT: {front}, REAR: {rear}')
-                print(f'{queue.display()}')
+                print(f'{queue.get_queue()}')
             elif choice == 3:
                 element = queue.deleteFront()
                 print(f'\nElement deleted: {element}')

@@ -1,4 +1,4 @@
-from cqueue import CircularQueue
+from .cqueue import CircularQueue
 
 
 def start():
@@ -18,7 +18,7 @@ def start():
                 queue.insert(element)
                 (front, rear) = queue.get_pointers()
                 print(f'\nValues after insertion FRONT: {front}, REAR: {rear}')
-                print(f'{queue.display()}')
+                print(f'{queue.get_queue()}')
 
             elif choice == 2:
                 element = queue.delete()
@@ -29,7 +29,7 @@ def start():
                 (front, rear) = queue.get_pointers()
                 print(f'\nPointer values are FRONT: {front}, REAR: {rear}')
             elif choice == 4:
-                print(f'{queue.display()}')
+                print(f'{queue.get_queue()}')
             elif choice == 5:
                 break
             else:

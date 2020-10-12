@@ -1,10 +1,7 @@
-from typing import Sized
-
-
 class CircularDoubleEndedQueue:
-    """
+    '''
     An implementation of Circular Double Ended Queue (FIFO).
-    """
+    '''
 
     def __init__(self, size=4):
         self.rear = -1
@@ -15,9 +12,15 @@ class CircularDoubleEndedQueue:
             self.queue.append('null')
 
     def get_pointers(self):
+        '''
+        returns front and rear pointers
+        '''
         return self.front, self.rear
 
     def insertFront(self, element):
+        '''
+        inserts an element from the front pointer and returns error if can't be inserted
+        '''
         # check for initial insertion
         if self.front == -1:
             self.front = self.rear = 0
@@ -42,6 +45,9 @@ class CircularDoubleEndedQueue:
         self.queue[self.front] = element
 
     def insertRear(self, element):
+        '''
+        inserts an element from the rear pointer and returns error if can't be inserted
+        '''
         # check for overflow
         if self.rear == self.size:
             self.rear = 0
@@ -64,6 +70,9 @@ class CircularDoubleEndedQueue:
             self.front = 0
 
     def deleteFront(self):
+        '''
+        deletes an element from the front pointer and returns error if element can't be deleted
+        '''
         # check for underflow
         if self.front == -1:
             raise Exception('\n-- Queue Underflow --')
@@ -86,6 +95,9 @@ class CircularDoubleEndedQueue:
         return element
 
     def deleteRear(self):
+        '''
+        deletes an element from the rear pointer and returns error if element can't be deleted
+        '''
         # check for initial condition
         if self.rear == -1:
             raise Exception('\n-- Queue Underflow --')
@@ -106,5 +118,8 @@ class CircularDoubleEndedQueue:
 
         return element
 
-    def display(self):
+    def get_queue(self):
+        '''
+        returns a list of all elements
+        '''
         return self.queue
