@@ -7,20 +7,20 @@ class SimpleQueue:
         self.rear = -1
         self.front = -1
         self.size = size
-        self.queue = []
-        for i in range(self.size+1):
-            self.queue.append('null')
+        self.queue = [None] * (size+1)
 
     def get_pointers(self):
         '''
         returns front and rear pointers
         '''
+
         return self.front, self.rear
 
     def insert(self, element):
         '''
         inserts an element and raises exception if queue is overflowed
         '''
+
         # check for overflow
         if self.rear >= self.size:
             raise Exception('\n-- Queue Overflow --')
@@ -34,17 +34,18 @@ class SimpleQueue:
         if self.front == -1:
             self.front = 0
 
-    def delete(self):
+    def remove(self):
         '''
-        deletes an element and returns it or raises exception if queue is underflowed
+        removes an element and returns it or raises exception if queue is underflowed
         '''
+
         # check for underflow
         if self.front == -1:
             raise Exception('\n-- Queue Underflow --')
 
-        # delete element
+        # remove element
         element = self.queue[self.front]
-        self.queue[self.front] = 'null'
+        self.queue[self.front] = None
 
         # check if queue is empty
         if self.front == self.rear:
@@ -59,4 +60,5 @@ class SimpleQueue:
         '''
         returns a list of all elements
         '''
+
         return self.queue
