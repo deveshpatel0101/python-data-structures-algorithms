@@ -19,6 +19,7 @@ class SinglyLinkedList:
         '''
         Inserts a node at the start
         '''
+
         node = Node(data)
         if self.head == None:
             self.head = self.tail = node
@@ -30,18 +31,22 @@ class SinglyLinkedList:
         '''
         Inserts a node at a given position
         '''
-        if self.head == None and position > 1:
-            raise Exception('\n-- Index out of range --')
+
+        if position <= 0:
+            raise IndexError(
+                'insertMiddle: position cannot be less than or equal to 0')
         elif position == 1:
             self.unshift(data)
             return
+        elif self.head == None:
+            raise IndexError('insertMiddle: index out of range')
 
         node = Node(data)
         currNode = self.head
 
         for i in range(0, position-2):
             if currNode == self.tail:
-                raise Exception('\n-- Index out of range --')
+                raise IndexError('insertMiddle: index out of range')
             currNode = currNode.next
 
         if currNode == self.tail:
@@ -56,6 +61,7 @@ class SinglyLinkedList:
         '''
         Inserts a node at the end
         '''
+
         node = Node(data)
         if self.head == None:
             self.head = self.tail = node
@@ -65,10 +71,11 @@ class SinglyLinkedList:
 
     def shift(self):
         '''
-        Deletes the first node and returns the data stored in it
+        removes the first node and returns the data stored in it
         '''
-        if self.head == None or self.tail == None:
-            raise Exception('\n-- List is empty --')
+
+        if self.head == None:
+            raise IndexError('shift: found empty list')
 
         node = self.head
         self.head = self.head.next
@@ -78,20 +85,24 @@ class SinglyLinkedList:
 
         return node.data
 
-    def deleteMiddle(self, position):
+    def removeMiddle(self, position):
         '''
-        Deletes a node from the specified position and returns the data stored in it
+        removes a node from the specified position and returns the data stored in it
         '''
-        if self.head == None and position > 1:
-            raise Exception('\n-- Index out of range --')
-        elif self.head == None or position == 1:
+
+        if position <= 0:
+            raise IndexError(
+                'removeMiddle: position cannot be less than or equal to 0')
+        elif position == 1:
             return self.shift()
+        elif self.head == None:
+            raise IndexError('removeMiddle: index out of range')
 
         currNode = self.head
 
         for i in range(0, position-2):
             if currNode.next == self.tail:
-                raise Exception('\n-- Index out of range --')
+                raise IndexError('removeMiddle: index out of range')
             currNode = currNode.next
 
         data = currNode.next.data
@@ -105,10 +116,11 @@ class SinglyLinkedList:
 
     def pop(self):
         '''
-        Deletes a node from the end and returns the data stored in it
+        removes a node from the end and returns the data stored in it
         '''
+
         if self.head == None:
-            raise Exception('\n-- List is empty --')
+            raise IndexError('pop: found empty list')
 
         node = self.head
         if self.head == self.tail:
@@ -127,8 +139,9 @@ class SinglyLinkedList:
         '''
         reverses the linked list
         '''
+
         if self.head == None:
-            raise Exception('\n-- List is empty --')
+            raise Exception('reverse: found empty list')
         nxt = prev = None
         curr = self.head
         tail = self.head
@@ -146,4 +159,5 @@ class SinglyLinkedList:
         '''
         returns the head and tail pointers
         '''
+
         return self.head, self.tail
