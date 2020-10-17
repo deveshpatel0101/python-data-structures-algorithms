@@ -6,17 +6,16 @@ Data Structures and Algorithms (DSA) is one of the most important topics in comp
 
 1. To get started make sure that you have python v3+ installed on your computer.
 2. Once python is installed on your machine, just clone or download this repository.
-3. Now `cd <folder-name>` into the folder where the folder you want to execute as a package is located.
-4. Now run `python <folder-name>`.
+3. Now `cd <folder-name>` into downloaded repo.
+4. Now run `pytest .` to run all tests or `pytest <folder-name>` to run specific tests.
 
 ### Example
 
-Let's assume that you want to run files located in folder `stack`, then the syntax to run it would be:
+Let's assume that you want to tests for `stack`, then the syntax to run it would be:
 
 ```
-cd python-data-structures-algorithms/stack
-
-python ./
+cd python-data-structures-algorithms
+pytest stack
 ```
 
 ### FOLDER NAMES
