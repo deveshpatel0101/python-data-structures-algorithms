@@ -8,22 +8,18 @@ class Stack:
         self.size = size
         self.top = 0
 
-    def set_size(self, size):
-        '''
-        sets the maximum allowed size of stack
-        '''
-        self.size = size
-
     def get_size(self):
         '''
         returns the size of stack
         '''
+
         return self.size
 
     def push(self, item):
         '''
         pushes an element at the top of stack
         '''
+
         if self.top == self.size:
             raise Exception('\n-- Stack Overflow! --')
         self.items.append(item)
@@ -34,6 +30,7 @@ class Stack:
         '''
         pops an element from the top of stack and return it
         '''
+
         if self.top == 0:
             raise Exception('\n-- Stack underflow! --')
         self.top -= 1
@@ -43,24 +40,28 @@ class Stack:
         '''
         returns True if stack is empty and False otherwise
         '''
+
         return self.items == []
 
     def is_full(self):
         '''
         returns True if stack is full and False otherwise
         '''
+
         return len(self.items) == self.size
 
     def peek(self):
         '''
         returns the element that is on the top of stack
         '''
+
         if self.top == 0:
             raise Exception('\n-- Stack underflow! --')
-        return self.items[len(self.items)-1]
+        return self.items[-1]
 
-    def display(self):
+    def get_items(self):
         '''
         returns all the elements present in the stack
         '''
+
         return self.items
