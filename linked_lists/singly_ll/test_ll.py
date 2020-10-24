@@ -14,7 +14,7 @@ class TestSinglyLinkedList(unittest.TestCase):
 
         self.assertRaises(Exception, ll.pop)
         self.assertRaises(Exception, ll.removeMiddle, randint(1, 50))
-        self.assertRaises(IndexError, ll.insertMiddle, 0, randint(1, 50))
+        self.assertRaises(Exception, ll.insertMiddle, 0, randint(1, 50))
         self.assertRaises(Exception, ll.shift)
 
     def test_insert_head(self):
@@ -113,7 +113,7 @@ class TestSinglyLinkedList(unittest.TestCase):
 
         self.verify_none(ll)
 
-        self.assertRaises(IndexError, ll.removeMiddle, 0)
+        self.assertRaises(Exception, ll.removeMiddle, 0)
 
         # number of elements to add from head and tail
         testRemoveHead = 5

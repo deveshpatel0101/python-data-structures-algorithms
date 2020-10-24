@@ -33,20 +33,19 @@ class SinglyLinkedList:
         '''
 
         if position <= 0:
-            raise IndexError(
-                'insertMiddle: position cannot be less than or equal to 0')
+            raise Exception
         elif position == 1:
             self.unshift(data)
             return
         elif self.head == None:
-            raise IndexError('insertMiddle: index out of range')
+            raise Exception
 
         node = Node(data)
         currNode = self.head
 
         for i in range(0, position-2):
             if currNode == self.tail:
-                raise IndexError('insertMiddle: index out of range')
+                raise Exception
             currNode = currNode.next
 
         if currNode == self.tail:
@@ -75,7 +74,7 @@ class SinglyLinkedList:
         '''
 
         if self.head == None:
-            raise IndexError('shift: found empty list')
+            raise Exception
 
         node = self.head
         self.head = self.head.next
@@ -91,18 +90,17 @@ class SinglyLinkedList:
         '''
 
         if position <= 0:
-            raise IndexError(
-                'removeMiddle: position cannot be less than or equal to 0')
+            raise Exception
         elif position == 1:
             return self.shift()
         elif self.head == None:
-            raise IndexError('removeMiddle: index out of range')
+            raise Exception
 
         currNode = self.head
 
         for i in range(0, position-2):
             if currNode.next == self.tail:
-                raise IndexError('removeMiddle: index out of range')
+                raise Exception
             currNode = currNode.next
 
         data = currNode.next.data
@@ -120,7 +118,7 @@ class SinglyLinkedList:
         '''
 
         if self.head == None:
-            raise IndexError('pop: found empty list')
+            raise Exception
 
         node = self.head
         if self.head == self.tail:
@@ -141,7 +139,7 @@ class SinglyLinkedList:
         '''
 
         if self.head == None:
-            raise Exception('reverse: found empty list')
+            raise Exception
         nxt = prev = None
         curr = self.head
         tail = self.head
