@@ -35,15 +35,14 @@ class SinglyLinkedList:
         if position <= 0:
             raise Exception
         elif position == 1:
-            self.unshift(data)
-            return
+            return self.unshift(data)
         elif self.head == None:
             raise Exception
 
         node = Node(data)
         currNode = self.head
 
-        for i in range(0, position-2):
+        for _ in range(0, position-2):
             if currNode == self.tail:
                 raise Exception
             currNode = currNode.next
@@ -76,13 +75,14 @@ class SinglyLinkedList:
         if self.head == None:
             raise Exception
 
-        node = self.head
+        if self.head == self.tail:
+            data = self.head.data
+            self.head = self.tail
+            return data
+
+        data = self.head.data
         self.head = self.head.next
-
-        if self.head == None:
-            self.tail = None
-
-        return node.data
+        return data
 
     def removeMiddle(self, position):
         '''
@@ -98,7 +98,7 @@ class SinglyLinkedList:
 
         currNode = self.head
 
-        for i in range(0, position-2):
+        for _ in range(0, position-2):
             if currNode.next == self.tail:
                 raise Exception
             currNode = currNode.next
@@ -120,16 +120,17 @@ class SinglyLinkedList:
         if self.head == None:
             raise Exception
 
-        node = self.head
         if self.head == self.tail:
+            data = self.head.data
             self.head = self.tail = None
-            return node.data
+            return data
 
-        while node.next.next != None:
-            node = node.next
+        currNode = self.head
+        while currNode.next.next != None:
+            currNode = currNode.next
 
-        data = node.next.data
-        self.tail = node
+        data = currNode.next.data
+        self.tail = currNode
         self.tail.next = None
         return data
 

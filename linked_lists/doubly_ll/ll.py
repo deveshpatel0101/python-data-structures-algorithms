@@ -85,12 +85,14 @@ class DoublyLinkedList:
         if self.head == None:
             raise Exception
 
-        data = self.head.data
         if self.head == self.tail:
+            data = self.head.data
             self.head = self.tail = None
-        else:
-            self.head = self.head.next
-            self.head.prev = None
+            return data
+
+        data = self.head.data
+        self.head = self.head.next
+        self.head.prev = None
 
         return data
 

@@ -87,8 +87,8 @@ class CircularLinkedList:
 
         data = self.head.data
         self.head = self.head.next
-
         self.tail.next = self.head
+
         return data
 
     def removeMiddle(self, position):

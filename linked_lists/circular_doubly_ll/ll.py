@@ -92,15 +92,16 @@ class CircularDoublyLinkedList:
 
         if self.head == None:
             raise Exception
+        
+        if self.head == self.tail:
+            data = self.head.data
+            self.head = self.tail = None
+            return data
 
         data = self.head.data
         self.head = self.head.next
-
-        if self.head == None:
-            self.tail = None
-        else:
-            self.head.prev = self.tail
-            self.tail.next = self.head
+        self.head.prev = self.tail
+        self.tail.next = self.head
 
         return data
 
