@@ -30,6 +30,8 @@ class TestCircularDoublyLinkedList(unittest.TestCase):
         head, tail = ll.getPointers()
         self.assertEqual(head, tail)
         self.verify_data(pushedElements, *ll.getPointers())
+        self.assertEqual(tail.next, head)
+        self.assertEqual(head.prev, tail)
 
         for _ in range(randint(5, 20)):
             element = randint(1, 50)
@@ -53,8 +55,9 @@ class TestCircularDoublyLinkedList(unittest.TestCase):
         ll.insertMiddle(1, element)
 
         head, tail = ll.getPointers()
-        print(head.data, tail.data, pushedElements, head, tail)
         self.assertEqual(head, tail)
+        self.assertEqual(tail.next, head)
+        self.assertEqual(head.prev, tail)
 
         for _ in range(testPushHead):
             element = randint(1, 50)
@@ -85,9 +88,12 @@ class TestCircularDoublyLinkedList(unittest.TestCase):
         element = randint(1, 50)
         pushedElements.append(element)
         ll.push(element)
+
         head, tail = ll.getPointers()
         self.assertEqual(head, tail)
         self.verify_data(pushedElements, head, tail)
+        self.assertEqual(tail.next, head)
+        self.assertEqual(head.prev, tail)
 
         for _ in range(10):
             element = randint(1, 50)
@@ -122,8 +128,6 @@ class TestCircularDoublyLinkedList(unittest.TestCase):
         testRemoveTail = 5
 
         pushedElements = self.fill_data(ll)
-        pushedElements = pushedElements[1:]
-        ll.removeMiddle(1)
         self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(testRemoveHead):
@@ -206,3 +210,5 @@ class TestCircularDoublyLinkedList(unittest.TestCase):
             arr.append(currNode.data)
 
         self.assertEqual(items[::-1], arr)
+        self.assertEqual(tail.next, head)
+        self.assertEqual(head.prev, tail)
