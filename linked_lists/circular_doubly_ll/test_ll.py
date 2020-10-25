@@ -1,12 +1,12 @@
 import unittest
 from random import randint
 
-from linked_lists.singly_ll.ll import SinglyLinkedList
-from linked_lists.singly_ll.ll import Node
+from linked_lists.circular_doubly_ll.ll import CircularDoublyLinkedList
+from linked_lists.circular_doubly_ll.ll import Node
 
 
-class TestSinglyLinkedList(unittest.TestCase):
-    def verify_none(self, ll: SinglyLinkedList):
+class TestCircularDoublyLinkedList(unittest.TestCase):
+    def verify_none(self, ll: CircularDoublyLinkedList):
         head, tail = ll.getPointers()
 
         self.assertIsNone(head)
@@ -18,7 +18,7 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertRaises(Exception, ll.shift)
 
     def test_insert_head(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
@@ -29,16 +29,16 @@ class TestSinglyLinkedList(unittest.TestCase):
 
         head, tail = ll.getPointers()
         self.assertEqual(head, tail)
-        self.verify_data(pushedElements, ll.getPointers()[0])
+        self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(randint(5, 20)):
             element = randint(1, 50)
             pushedElements.append(element)
             ll.unshift(element)
-            self.verify_data(pushedElements[::-1], ll.getPointers()[0])
+            self.verify_data(pushedElements[::-1], *ll.getPointers())
 
     def test_insert_middle(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
@@ -53,19 +53,20 @@ class TestSinglyLinkedList(unittest.TestCase):
         ll.insertMiddle(1, element)
 
         head, tail = ll.getPointers()
+        print(head.data, tail.data, pushedElements, head, tail)
         self.assertEqual(head, tail)
 
         for _ in range(testPushHead):
             element = randint(1, 50)
             pushedElements = [element] + pushedElements
             ll.insertMiddle(1, element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(1, testPushTail):
             element = randint(1, 50)
             pushedElements.append(element)
             ll.insertMiddle(len(pushedElements), element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(testPushMiddle):
             element = randint(1, 50)
@@ -73,10 +74,10 @@ class TestSinglyLinkedList(unittest.TestCase):
             ll.insertMiddle(position, element)
             pushedElements = pushedElements[:position-1] + \
                 [element] + pushedElements[position-1:]
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
     def test_insert_tail(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
@@ -86,16 +87,16 @@ class TestSinglyLinkedList(unittest.TestCase):
         ll.push(element)
         head, tail = ll.getPointers()
         self.assertEqual(head, tail)
-        self.verify_data(pushedElements, head)
+        self.verify_data(pushedElements, head, tail)
 
         for _ in range(10):
             element = randint(1, 50)
             pushedElements.append(element)
             ll.push(element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
     def test_remove_head(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
@@ -106,10 +107,10 @@ class TestSinglyLinkedList(unittest.TestCase):
             pushedElements = pushedElements[1:]
             removedElement = ll.shift()
             self.assertEqual(removedElement, element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
     def test_remove_middle(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
@@ -123,21 +124,21 @@ class TestSinglyLinkedList(unittest.TestCase):
         pushedElements = self.fill_data(ll)
         pushedElements = pushedElements[1:]
         ll.removeMiddle(1)
-        self.verify_data(pushedElements, ll.getPointers()[0])
+        self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(testRemoveHead):
             element = pushedElements[0]
             pushedElements = pushedElements[1:]
             removedElement = ll.removeMiddle(1)
             self.assertEqual(removedElement, element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(1, testRemoveTail):
             element = pushedElements[-1]
             pushedElements = pushedElements[:-1]
             removedElement = ll.removeMiddle(len(pushedElements)+1)
             self.assertEqual(element, removedElement)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
         for _ in range(testRemoveMiddle):
             position = randint(2, len(pushedElements)-1)
@@ -146,10 +147,10 @@ class TestSinglyLinkedList(unittest.TestCase):
                                             1] + pushedElements[position:]
             removedElement = ll.removeMiddle(position)
             self.assertEqual(removedElement, element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
     def test_remove_tail(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
@@ -160,19 +161,19 @@ class TestSinglyLinkedList(unittest.TestCase):
             pushedElements = pushedElements[:-1]
             removedElement = ll.pop()
             self.assertEqual(removedElement, element)
-            self.verify_data(pushedElements, ll.getPointers()[0])
+            self.verify_data(pushedElements, *ll.getPointers())
 
     def test_reverse(self):
-        ll = SinglyLinkedList()
+        ll = CircularDoublyLinkedList()
 
         self.verify_none(ll)
 
         pushedElements = self.fill_data(ll)
 
         ll.reverse()
-        self.verify_data(pushedElements[::-1], ll.getPointers()[0])
+        self.verify_data(pushedElements[::-1], *ll.getPointers())
 
-    def fill_data(self, ll: SinglyLinkedList, fill_size=25):
+    def fill_data(self, ll: CircularDoublyLinkedList, fill_size=25):
         pushedElements = []
 
         for _ in range(fill_size):
@@ -182,11 +183,26 @@ class TestSinglyLinkedList(unittest.TestCase):
 
         return pushedElements
 
-    def verify_data(self, items, head: Node):
+    def verify_data(self, items, head: Node, tail: Node):
+        # moving from head to tail
         currNode = head
         arr = []
-        while currNode is not None:
+
+        while currNode is not tail:
             arr.append(currNode.data)
             currNode = currNode.next
+        else:
+            arr.append(currNode.data)
 
         self.assertEqual(items, arr)
+
+        # moving from tail to head
+        currNode = tail
+        arr = []
+        while currNode is not head:
+            arr.append(currNode.data)
+            currNode = currNode.prev
+        else:
+            arr.append(currNode.data)
+
+        self.assertEqual(items[::-1], arr)

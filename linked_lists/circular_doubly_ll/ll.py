@@ -1,8 +1,15 @@
 class Node:
+    '''
+    A node data structure holds two values:
+    1. Data to store in the node
+    2. A pointer to the next node
+    3. A pointer to the previous node
+    '''
+
     def __init__(self, data):
         self.data = data
-        self.prev = None
-        self.next = None
+        self.prev: Node = None
+        self.next: Node = None
 
 
 class CircularDoublyLinkedList:
@@ -10,67 +17,83 @@ class CircularDoublyLinkedList:
         self.head = None
         self.tail = None
 
-    # insert at start
     def unshift(self, data):
+        '''
+        Inserts a node at the start
+        '''
+
         node = Node(data)
         if self.head == None:
             self.head = self.tail = node
             self.head.prev = self.tail
-            self.tail.next = self.head
-        else:
-            node.next = self.head
-            self.head.prev = node
-            self.head = node
-            self.head.prev = self.tail
-            self.tail.next = self.head
+            self.head.next = self.tail
+            return
 
-    # insert at middle
-    def insertMiddle(self, num, data):
-        if self.head == None and num > 1:
-            raise Exception('\n-- Index out of range --')
-        elif self.head == None or num == 1:
-            self.unshift(data)
-        else:
-            node = Node(data)
-            currNode = self.head
+        node.next = self.head
+        self.head.prev = node
+        self.head = node
+        self.head.prev = self.tail
+        self.tail.next = self.head
 
-            for i in range(0, num-2):
-                if currNode == self.tail:
-                    raise Exception('\n-- Index out of range --')
-                currNode = currNode.next
+    def insertMiddle(self, position, data):
+        '''
+        Inserts a node at a given position
+        '''
 
+        if position <= 0:
+            raise Exception
+        elif position == 1:
+            return self.unshift(data)
+        elif self.head == None:
+            raise Exception
+
+        node = Node(data)
+        currNode = self.head
+
+        for _ in range(0, position-2):
             if currNode == self.tail:
-                node.prev = self.tail
-                self.tail.next = node
-                self.tail = node
-                self.tail.next = self.head
-                self.head.prev = self.tail
-            else:
-                node.prev = currNode
-                node.next = currNode.next
-                currNode.next = node
-                node.next.prev = node
+                raise Exception
+            currNode = currNode.next
 
-    # insert at end
-    def push(self, data):
-        node = Node(data)
-        if self.head == None:
-            self.head = self.tail = node
-            self.head.prev = self.tail
-            self.tail.next = self.head
-        else:
+        if currNode == self.tail:
             node.prev = self.tail
             self.tail.next = node
             self.tail = node
             self.tail.next = self.head
             self.head.prev = self.tail
+        else:
+            node.prev = currNode
+            node.next = currNode.next
+            currNode.next = node
+            node.next.prev = node
 
-    # delete from start
+    def push(self, data):
+        '''
+        Inserts a node at the end
+        '''
+
+        node = Node(data)
+        if self.head == None:
+            self.head = self.tail = node
+            self.head.prev = self.tail
+            self.tail.next = self.head
+            return
+
+        node.prev = self.tail
+        self.tail.next = node
+        self.tail = node
+        self.tail.next = self.head
+        self.head.prev = self.tail
+
     def shift(self):
-        if self.head == None or self.tail == None:
-            raise Exception('\n-- List is empty --')
+        '''
+        removes the first node and returns the data stored in it
+        '''
 
-        node = self.head
+        if self.head == None:
+            raise Exception
+
+        data = self.head.data
         self.head = self.head.next
 
         if self.head == None:
@@ -79,55 +102,66 @@ class CircularDoublyLinkedList:
             self.head.prev = self.tail
             self.tail.next = self.head
 
-        return node.data
+        return data
 
-    # delete from middle
-    def deleteMiddle(self, num):
-        if self.head == None and num > 1:
-            raise Exception('\n-- Index out of range --')
-        elif self.head == None or num == 1:
+    def removeMiddle(self, position):
+        '''
+        removes a node from the specified position and returns the data stored in it
+        '''
+
+        if position <= 0:
+            raise Exception
+        elif position == 1:
             return self.shift()
-        else:
-            currNode = self.head
+        elif self.head == None:
+            raise Exception
 
-            for i in range(0, num-2):
-                if currNode.next == self.tail:
-                    raise Exception('\n-- Index out of range --')
-                currNode = currNode.next
-            data = None
-            data = currNode.next.data
+        currNode = self.head
+
+        for _ in range(0, position-2):
             if currNode.next == self.tail:
-                currNode.next = self.head
-                self.tail = currNode
-                self.head.prev = self.tail
-            else:
-                currNode.next = currNode.next.next
-                currNode.next.prev = currNode
+                raise Exception
+            currNode = currNode.next
 
+        data = currNode.next.data
+
+        if currNode.next == self.tail:
+            currNode.next = self.head
+            self.tail = currNode
+            self.head.prev = self.tail
+        else:
+            currNode.next = currNode.next.next
+            currNode.next.prev = currNode
+
+        return data
+
+    def pop(self):
+        '''
+        removes a node from the end and returns the data stored in it
+        '''
+
+        if self.head == None:
+            raise Exception
+
+        if self.head == self.tail:
+            data = self.head.data
+            self.head = self.tail = None
             return data
 
-    # delete from end
-    def pop(self):
-        if self.head == None or self.tail == None:
-            raise Exception('\n-- List is empty --')
-
-        node = self.head
-        if self.head == self.tail:
-            self.head = self.tail = None
-            return node.data
-
-        while node.next.next != self.head:
-            node = node.next
-
-        data = node.next.data
-        self.tail = node
+        data = self.tail.data
+        self.tail = self.tail.prev
         self.tail.next = self.head
         self.head.prev = self.tail
+
         return data
 
     def reverse(self):
+        '''
+        reverses the linked list
+        '''
+
         if self.head == None:
-            raise Exception('\n-- List is empty --')
+            raise Exception
 
         node = self.head
         while node.next != self.head:
@@ -145,5 +179,9 @@ class CircularDoublyLinkedList:
         self.head = self.tail
         self.tail = temp
 
-    def display(self):
+    def getPointers(self):
+        '''
+        returns the head and tail pointers
+        '''
+
         return self.head, self.tail
