@@ -22,6 +22,7 @@ pytest stack
 
 1. **algorithms** -
    - _sorting_ -
+     - _binary_insertion_sort_ - Binary Insertion Sort - O(n<sup>2</sup>)
      - _bubble_sort_ - Bubble Sort - O(n<sup>2</sup>)
      - _bucket_sort_ - Bucket Sort - O(n<sup>2</sup>)
      - _counting_sort_ - Counting Sort - O(n + k)
