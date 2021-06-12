@@ -259,6 +259,16 @@ pytest stack
       <td>n: # of elements</td>
   </tr>
   <tr>
+      <td>Interpolation Search</td>
+      <td>
+        Avg Case: O(log<sub>2</sub>(log<sub>2</sub>(n)))
+        <br />
+        O(n) when items are distributed exponentially
+      </td>
+      <td>O(1)</td>
+      <td>n: # of elements</td>
+  </tr>
+  <tr>
       <td>Linear Search</td>
       <td>O(n)</td>
       <td>O(1)</td>
