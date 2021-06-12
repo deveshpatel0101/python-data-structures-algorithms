@@ -253,6 +253,12 @@ pytest stack
       <th colspan="4">Searching</th>
   </tr>
   <tr>
+      <td>Binary Search</td>
+      <td>O(log(n))</td>
+      <td>O(1)</td>
+      <td>n: # of elements</td>
+  </tr>
+  <tr>
       <td>Linear Search</td>
       <td>O(n)</td>
       <td>O(1)</td>
