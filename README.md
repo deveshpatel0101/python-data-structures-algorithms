@@ -275,6 +275,12 @@ pytest stack
       <td>n: # of elements</td>
   </tr>
   <tr>
+      <td>Ternary Search</td>
+      <td>O(log<sub>3</sub>(n))</td>
+      <td>O(1)</td>
+      <td>n: # of elements</td>
+  </tr>
+  <tr>
     <th colspan="4">Sorting</th>
   </tr>
   <tr>
