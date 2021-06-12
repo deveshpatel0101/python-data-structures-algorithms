@@ -1,6 +1,6 @@
 class LinearSearch:
-    def search(arr, key):
+    def search(self, arr, key):
         for index, item in enumerate(arr):
             if item == key:
                 return True, index, item
-        return False, -1, None
+        return False, None
