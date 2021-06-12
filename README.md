@@ -11,51 +11,272 @@ Data Structures and Algorithms (DSA) is one of the most important topics in comp
 
 ### Example
 
-Let's assume that you want to tests for `stack`, then the syntax to run it would be:
+Let's assume that you want to run tests for `stack`, then the syntax to run it would be:
 
 ```
 cd python-data-structures-algorithms
 pytest stack
 ```
 
-### FOLDER NAMES
+### Data Structures
 
-1. **algorithms** -
-   - _sorting_ -
-     - _binary_insertion_sort_ - Binary Insertion Sort - O(n<sup>2</sup>)
-     - _bubble_sort_ - Bubble Sort - O(n<sup>2</sup>)
-     - _bucket_sort_ - Bucket Sort - O(n<sup>2</sup>)
-     - _counting_sort_ - Counting Sort - O(n + k)
-     - _heap_sort_ - Heap Sort - O(nLog(n))
-     - _insertion_sort_ - Insertion Sort - O(n<sup>2</sup>)
-     - _merge_sort_ - Merge Sort - O(nLog(n))
-     - _quick_sort_ - Quick Sort - O(nLog(n))
-     - _radix_sort_ - Radix Sort - O(n + k)
-     - _selection_sort_ - Selection Sort - O(n<sup>2</sup>)
-     - _shell_sort_ - Shell Sort - O(n<sup>2</sup>)
-2. **graphs** -
-   - _directed_unweighted_ - Directed Unweighted Graph
-   - _directed_weighted_ - Directed Weighted Graph
-   - _undirected_unweighted_ - Undirected Unweighted Graph
-   - _undirected_weighted_ - Undirected Weighted Graph
-3. **heaps** -
-   - _max_binary_heap_ - Max Binary Heap
-   - _min_binary_heap_ - Min Binary Heap
-4. **linked_lists** -
-   - _circular_doubly_ll_ - Circular Doubly Linked List
-   - _circular_ll_ - Circular Linked List
-   - _doubly_ll_ - Doubly Linked List
-   - _pres_order_singly_ll_ - Singly Linked List that preserves the order on inserting new node
-   - _singly_ll_ - Singly Linked List
-5. **queues** -
-   - _cdqueue_ - Circular Double Ended Queue
-   - _cqueue_ - Circular Queue
-   - _dqueue_ - Double Ended Queue
-   - _simple_queue_ - Simple Queue
-6. **stack** - stack
-7. **trees** -
-   - _bst_ - Binary Search Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
-   - _simple_bt_ - Simple Binary Tree using linked list with BFS and DFS (Pre, In, Post) order traversals.
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time Complexity</th>
+    <th>Space Complexity</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th colspan="4">Graphs</th>
+  </tr>
+  <tr>
+    <td>Directed Unweighted</td>
+    <td>-</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Directed Weighted</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Undirected Unweighted</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Undirected Weighted</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <th colspan="4">Heaps</th>
+  </tr>
+  <tr>
+    <td>Max Binary Heap</td>
+    <td>insert, delete: O(log(n))</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <td>Min Binary Heap</td>
+    <td>insert, delete: O(log(n))</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <th colspan="4">Linked Lists</th>
+  </tr>
+  <tr>
+    <td>Circular Doubly LL</td>
+    <td>
+      push, pop, shift, unshift: O(1)
+      <br />
+      insertMiddle, deleteMiddle: O(k)
+    </td>
+    <td>O(n)</td>
+    <td>
+      n: # of elements
+      <br />
+      k: pos of node to act on
+    </td>
+  </tr>
+  <tr>
+    <td>Circular LL</td>
+    <td>
+      push, pop, shift, unshift: O(1)
+      <br />
+      insertMiddle, deleteMiddle: O(k)
+    </td>
+    <td>O(n)</td>
+    <td>
+      n: # of elements
+      <br />
+      k: pos of node to act on
+    </td>
+  </tr>
+  <tr>
+    <td>Doubly LL</td>
+    <td>
+      push, pop, shift, unshift: O(1)
+      <br />
+      insertMiddle, deleteMiddle: O(k)
+    </td>
+    <td>O(n)</td>
+    <td>
+      n: # of elements
+      <br />
+      k: pos of node to act on
+    </td>
+  </tr>
+  <tr>
+    <td>Singly LL with preserve order</td>
+    <td>
+      pop, shift: O(1)
+      <br />
+      insert: O(n)
+      <br />
+      delete: O(k)
+    </td>
+    <td>O(n)</td>
+    <td>
+      n: # of elements
+      <br />
+      k: pos of node to act on
+    </td>
+  </tr>
+  <tr>
+    <td>Singly LL</td>
+    <td>
+      push, pop, shift, unshift: O(1)
+      <br />
+      insertMiddle, deleteMiddle: O(k)
+    </td>
+    <td>O(n)</td>
+    <td>
+      n: # of elements
+      <br />
+      k: pos of node to act on
+    </td>
+  </tr>
+  <tr>
+    <th colspan="4">Queues</th>
+  </tr>
+  <tr>
+    <td>Circular Double Ended Q</td>
+    <td>insert, delete: O(1)</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <td>Circular Q</td>
+    <td>insert, delete: O(1)</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <td>Double Ended Q</td>
+    <td>insert, delete: O(1)</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <td>Simple Q</td>
+    <td>insert, delete: O(1)</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <th colspan="4">Stack</th>
+  </tr>
+  <tr>
+    <td>Stack</td>
+    <td>push, pop: O(1)</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
+    <th colspan="4">Trees</th>
+  </tr>
+  <tr>
+    <td>Binary Search Tree</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Simple Binary Tree</td>
+    <td>-</td>
+    <td>-</td>
+    <td></td>
+  </tr>
+</table>
+<br />
+
+### Algorithms
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Time Complexity</th>
+    <th>Space Complexity</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <th colspan="4">Sorting</th>
+  </tr>
+  <tr>
+    <td>Binary Insertion Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(n)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Bubble Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Bucket Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Counting Sort</td>
+    <td>O(n + k)</td>
+    <td>O(k)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Heap Sort</td>
+    <td>O(nLog(n))</td>
+    <td>O(1)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Insertion Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Merge Sort</td>
+    <td>O(nLog(n))</td>
+    <td>O(n)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Quick Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(log(n))</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Radix Sort</td>
+    <td>O(nk)</td>
+    <td>O(n+k)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Selection Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Shell Sort</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+    <td>-</td>
+  </tr>
+</table>
 
 ### Contribution
 
