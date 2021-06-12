@@ -32,6 +32,7 @@ pytest stack
      - _quick_sort_ - Quick Sort - O(nLog(n))
      - _radix_sort_ - Radix Sort - O(n + k)
      - _selection_sort_ - Selection Sort - O(n<sup>2</sup>)
+     - _shell_sort_ - Shell Sort - O(n<sup>2</sup>)
 2. **graphs** -
    - _directed_unweighted_ - Directed Unweighted Graph
    - _directed_weighted_ - Directed Weighted Graph
