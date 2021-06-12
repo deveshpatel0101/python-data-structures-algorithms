@@ -250,6 +250,15 @@ pytest stack
     <th>Description</th>
   </tr>
   <tr>
+      <th colspan="4">Searching</th>
+  </tr>
+  <tr>
+      <td>Linear Search</td>
+      <td>O(n)</td>
+      <td>O(1)</td>
+      <td>n: # of elements</td>
+  </tr>
+  <tr>
     <th colspan="4">Sorting</th>
   </tr>
   <tr>
