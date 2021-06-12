@@ -184,16 +184,58 @@ pytest stack
     <th colspan="4">Trees</th>
   </tr>
   <tr>
+    <td>AVL Trees</td>
+    <td>
+      Insert: O(h)
+      <br />
+      BFS, DFS(In, Pre, or Post): O(n)
+    </td>
+    <td>
+      Insert: O(h)
+      <br />
+      BFS, DFS(In, Pre or Post): O(n)
+    </td>
+    <td>
+      h: height of the tree
+      <br />
+      n: # of nodes
+    </td>
+  </tr>
+  <tr>
     <td>Binary Search Tree</td>
-    <td>-</td>
-    <td>-</td>
-    <td></td>
+    <td>
+      Insert: O(n)
+      <br />
+      BFS, DFS(In, Pre, or Post): O(n)
+    </td>
+    <td>
+      Insert: O(h)
+      <br />
+      BFS, DFS(In, Pre or Post): O(n)
+    </td>
+    <td>
+      h: height of the tree
+      <br />
+      n: # of nodes
+    </td>
   </tr>
   <tr>
     <td>Simple Binary Tree</td>
-    <td>-</td>
-    <td>-</td>
-    <td></td>
+    <td>
+      Insert: O(n)
+      <br />
+      BFS, DFS(In, Pre, or Post): O(n)
+    </td>
+    <td>
+      Insert: O(n)
+      <br />
+      BFS, DFS(In, Pre, or Post): O(n)
+    </td>
+    <td>
+      h: height of the tree
+      <br />
+      n: # of nodes
+    </td>
   </tr>
 </table>
 <br />
