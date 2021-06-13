@@ -166,6 +166,12 @@ pytest stack
     <td>n: # of elements</td>
   </tr>
   <tr>
+    <td>Priority Q</td>
+    <td>insert, delete: O(log(n))</td>
+    <td>O(n)</td>
+    <td>n: # of elements</td>
+  </tr>
+  <tr>
     <td>Simple Q</td>
     <td>insert, delete: O(1)</td>
     <td>O(n)</td>
